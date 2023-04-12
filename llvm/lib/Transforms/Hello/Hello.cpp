@@ -17,5 +17,5 @@ namespace {
 
     char Hello:ID = 0;  //LLVM koristi adresu ID promenjljive da identifikuje pass, tako da vrednost nije bitna;
 
-    static RegisterPass<Hello> X("hello", "Hello World Pass", false, false )
+    static RegisterPass<Hello> X("hello", "Hello World Pass", false, false ) // da bi pomocu opt mogli da pokrenemo pass
 }
