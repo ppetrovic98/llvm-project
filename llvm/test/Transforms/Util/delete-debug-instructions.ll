@@ -1,12 +1,12 @@
-; RUN: /home/syrmia/Desktop/llvm/llvm-build-ninja/bin/opt -passes=delete-dbg-inst -S %s | FileCheck %s
+; RUN: /home/syrmia/Desktop/llvm/llvm-build-ninja/bin/opt -passes=delete-dbg-inst < %s -S -o - | FileCheck %s 
 
 define void @f() !dbg !4 {
 entry:
   %i = alloca i32, align 4
-  ; CHECK-NOT: @llvm.dbg.declare
+  ; CHECK-NOT: call void @llvm.dbg.declare
   call void @llvm.dbg.declare(metadata ptr %i, metadata !11, metadata !13), !dbg !14
   store i32 42, ptr %i, align 4, !dbg !14
-  ; CHECK-NOT: @llvm.dbg.value
+  ; CHECK-NOT: call void @llvm.dbg.value
   call void @llvm.dbg.value(metadata i32 0, metadata !16, metadata !13), !dbg !15
   ret void, !dbg !15
 }
