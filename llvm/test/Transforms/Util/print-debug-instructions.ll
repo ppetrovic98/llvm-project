@@ -1,4 +1,4 @@
-; RUN: /home/syrmia/Desktop/llvm/llvm-build-ninja/bin/opt -passes=print-dbg-inst -disable-output -S 2>&1 %s | FileCheck %s
+; RUN: opt -passes=print-dbg-inst -disable-output -S 2>&1 %s | FileCheck %s
 
 define void @f() !dbg !4 {
 entry:

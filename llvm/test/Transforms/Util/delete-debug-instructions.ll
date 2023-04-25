@@ -1,4 +1,4 @@
-; RUN: /home/syrmia/Desktop/llvm/llvm-build-ninja/bin/opt -passes=delete-dbg-inst < %s -S -o - | FileCheck %s 
+; RUN: opt -passes=delete-dbg-inst < %s -S -o - | FileCheck %s 
 
 define void @f() !dbg !4 {
 entry:
